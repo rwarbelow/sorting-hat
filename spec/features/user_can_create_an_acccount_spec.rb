@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature 'user can create an account' do
   scenario 'they create an account' do
@@ -14,15 +14,8 @@ RSpec.feature 'user can create an account' do
 
     click_on 'Create account'
 
-    expect(page).to has_content("Welcome #{username}!")
-    expect(page).to has_content("Created new account!")
-
-      #user visits home page
-      #user clicks on create account
-      #fill in username and password
-      #click on create account
-      #on their account page they should see welcome username
-      #also see that they created a new account
+    expect(page).to have_content("Welcome #{username}!")
+    expect(page).to have_content("Created new account!")
   end
 
 end
