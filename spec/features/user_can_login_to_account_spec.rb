@@ -15,6 +15,17 @@ RSpec.feature "User login" do
     expect(page).to have_content("Welcome harry!")
   end
 
-  context "user enters incorrect username and password combination" do
+  scenario "user enters incorrect username and password combination" do
+    username = "harry"
+    password = "hedwig"
+    create_user(username, password)
+
+    visit "/"
+    click_on "Login"
+    fill_in "Username", with: username
+    fill_in "Password", with: "invalidpassword"
+    click_on "Login"
+
+    expect(page).to have_content("Unable to login, please try again.")
   end
 end

@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(user.id)
       end
     else
+      flash.now[:error] = "Unable to login, please try again."
       render :new
     end
   end
