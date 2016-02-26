@@ -1,1 +1,13 @@
-<%= link_to 'Create account', new_user_path %>
+<div class="col-md-12 text-center welcome-header text-color-green">
+Sorting Hat
+</div>
+<div class="col-md-12 text-center">
+  <%= image_tag "welcome.jpg", class: "image-boxed"%>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <%= link_to 'Create account', new_user_path, class: "btn btn-default text-color-green bigger-font " %>
+    <%= link_to 'Login', login_path, class: "btn btn-default text-color-green bigger-font" %>
+  </div>
+</div>

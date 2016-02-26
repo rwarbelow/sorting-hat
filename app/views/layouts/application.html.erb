@@ -2,13 +2,16 @@
 <html>
 <head>
   <title>SortingHat</title>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Seymour+One" %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1"></head>
 <body>
 
-<%= content_tag :div, flash[:notice], id: "flash_#{flash.keys.first}" %>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
 
 <%= yield %>
 
