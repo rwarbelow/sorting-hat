@@ -1,11 +1,9 @@
 class RewardsController < Admin::BaseController
-
   def index
     @rewards = Reward.all
   end
 
   def new
-
   end
 
   def create

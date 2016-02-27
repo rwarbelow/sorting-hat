@@ -4,6 +4,6 @@ class Reward < ActiveRecord::Base
   validates :cost, presence: true
 
   def format_name
-    name.gsub(" ", "-")
+    name.tr(" ", "-")
   end
 end
