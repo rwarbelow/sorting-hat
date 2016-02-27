@@ -2,11 +2,11 @@ RSpec.feature "User can see rewards" do
   scenario "user views list of rewards" do
     username = "echen"
     password = "password"
-    user = create_user(username, password)
+    create_user(username, password)
     login(username, password)
     reward_name = "Golden Snitch"
     reward_cost = 10
-    reward = Reward.create(name: reward_name, cost: reward_cost)
+    Reward.create(name: reward_name, cost: reward_cost)
 
     click_on "List rewards"
 

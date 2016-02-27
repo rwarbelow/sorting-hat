@@ -1,4 +1,4 @@
-class RewardsController < Admin::BaseController
+class RewardsController < ApplicationController
   def index
     @rewards = Reward.all
   end
