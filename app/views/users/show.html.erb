@@ -1,2 +1,10 @@
-<%= link_to "List rewards", rewards_path %>
+<%= link_to "Redeem points", user_rewards_path(current_user) %>
 <h1><%= "Welcome #{current_user.username}!" %></h1>
+<div id="rewards">
+  <% @rewards.each do |reward| %>
+    <p><%= reward.name %></p>
+  <% end %>
+</div>
+<p>
+  Total points: <%= @user.points.total %>
+</p>

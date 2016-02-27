@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :reward_user do
+    reward nil
+    user nil
+  end
   factory :reward do
     cost 1
     name "MyString"

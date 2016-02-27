@@ -16,5 +16,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show] do
     resources :points, only: [:new, :create, :destroy]
+    get "/rewards", to: "user/rewards#index"
+    post "/rewards", to: "user/rewards#create"
   end
 end

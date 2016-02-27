@@ -8,5 +8,6 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:role) }
     it { should define_enum_for(:role) }
     it { should have_many(:points) }
+    it { should have_many(:rewards) }
   end
 end
