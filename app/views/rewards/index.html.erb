@@ -1,0 +1,9 @@
+<%= link_to "Create reward", new_reward_path %>
+
+<h2>List Rewards</h2>
+<% @rewards.each do |reward| %>
+<div id="<%=reward.format_name%>">
+  <p>Name: <%= reward.name %></p>
+  <p>Cost: <%= reward.cost %></p>
+</div>
+<% end %>
