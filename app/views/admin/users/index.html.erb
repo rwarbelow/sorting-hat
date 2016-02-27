@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+<div id="<%=user.username %>">
+  <p><%= link_to user.username, admin_user_path(user.id) %></p>
+  <p>Total: <%= user.points.total %></p>
+  <p>Redeemed: <%= user.points.redeemed %></p>
+  <p>Balance: <%= user.points.balance %></p>
+</div>
+<% end %>

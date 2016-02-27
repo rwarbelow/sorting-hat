@@ -1,0 +1,5 @@
+<%= form_for [@user,@point] do |f| %>
+  <%= f.label :value %>
+  <%= f.text_field :value %>
+  <%= f.submit "Create points"%>
+<% end %>

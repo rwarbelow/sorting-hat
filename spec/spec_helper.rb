@@ -2,12 +2,13 @@ require "simplecov"
 SimpleCov.start("rails")
 
 module SpecHelpers
+
   def create_user(username, password, role = 0)
     User.create(username: username, password: password, role: role)
   end
 
   def logout
-    session.clear
+    reset_session!
   end
 
   def login(username, password)
