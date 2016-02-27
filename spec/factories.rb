@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :reward do
+    cost 1
+    name "MyString"
+    reward_users nil
+  end
   factory :point do
     value 1
     user nil

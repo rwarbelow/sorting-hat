@@ -1,0 +1,7 @@
+<%= form_for(Reward.new) do |f| %>
+<%= f.label(:name) %>
+<%= f.text_field(:name) %>
+<%= f.label(:cost) %>
+<%= f.text_field(:cost) %>
+<%= f.submit %>
+<% end %>
