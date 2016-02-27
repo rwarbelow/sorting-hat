@@ -1,4 +1,4 @@
-class PointsController < ApplicationController
+class PointsController < Admin::BaseController
   def new
     @user = User.find(params[:user_id])
     @point = Point.new

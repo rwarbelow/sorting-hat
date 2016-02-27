@@ -8,4 +8,7 @@ class ApplicationController < ActionController::Base
     @user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
+  def require_admin
+    render file: "/public/404" unless current_user.admin?
+  end
 end
