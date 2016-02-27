@@ -11,10 +11,11 @@ RSpec.feature "Admin can destroy points" do
     end
     login(username, password)
 
-    click_on "Draco"
+    visit admin_user_path(draco)
 
     click_on "Delete 500 points"
 
+    expect(page).to have_content "Deleted 500 points"
     within("#points") do
       expect(page).not_to have_content "500"
     end

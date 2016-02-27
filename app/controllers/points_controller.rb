@@ -13,6 +13,14 @@ class PointsController < Admin::BaseController
     end
   end
 
+  def destroy
+    @point = Point.find(params[:id])
+    @user = User.find(params[:user_id])
+    flash[:notice] = "Deleted #{@point.value} points"
+    Point.destroy(@point.id)
+    redirect_to admin_user_path(@user)
+  end
+
   private
 
   def point_params
