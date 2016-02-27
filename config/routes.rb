@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :rewards, only: [:index, :new, :create, :show, :edit, :update]
 
   resources :users, only: [:new, :create, :show] do
-    resources :points, only: [:new, :create]
+    resources :points, only: [:new, :create, :destroy]
   end
 end
