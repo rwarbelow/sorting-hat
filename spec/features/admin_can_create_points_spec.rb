@@ -14,7 +14,7 @@ RSpec.feature "admin can create points" do
 
     click_on "Create points for Rachel"
 
-    fill_in "Amount", with: "100"
+    fill_in "Value", with: "100"
 
     click_on "Create points"
 

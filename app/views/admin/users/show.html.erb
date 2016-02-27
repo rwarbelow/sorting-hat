@@ -1,3 +1,1 @@
-<h1>Welcome <%=current_user.username%>!</h1>
-<%= link_to "List users", admin_users_path %>
-<%#= link_to "Create points", new_admin_point_path %>
+<%= link_to "Create points for #{@user.username}", new_user_point_path(@user.id) %>

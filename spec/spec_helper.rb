@@ -8,7 +8,7 @@ module SpecHelpers
   end
 
   def logout
-    session.clear
+    reset_session!
   end
 
   def login(username, password)

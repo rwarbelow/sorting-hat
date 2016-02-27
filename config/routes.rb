@@ -6,12 +6,13 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
 
+  get "/admin/dashboard", to: "admin/users#dashboard"
+
   namespace :admin do
     resources :users, only: [:show, :index]
   end
 
-  resources :users, only: [:new, :create, :show]
-
-
-
+  resources :users, only: [:new, :create, :show] do
+    resources :points, only: [:new, :create]
+  end
 end
