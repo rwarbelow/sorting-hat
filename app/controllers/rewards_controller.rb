@@ -6,6 +6,23 @@ class RewardsController < ApplicationController
   def new
   end
 
+  def update
+    @reward = Reward.find(params[:id])
+    if @reward.update(reward_params)
+      redirect_to reward_path(@reward.id)
+    else
+      render :edit
+    end
+  end
+
+  def edit
+    @reward = Reward.find(params[:id])
+  end
+
+  def show
+    @reward = Reward.find(params[:id])
+  end
+
   def create
     @reward = Reward.new(reward_params)
     if @reward.save
