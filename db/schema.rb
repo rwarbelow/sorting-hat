@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227174825) do
+ActiveRecord::Schema.define(version: 20160227222312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20160227174825) do
   end
 
   add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
+
+  create_table "reward_users", force: :cascade do |t|
+    t.integer  "reward_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reward_users", ["reward_id"], name: "index_reward_users_on_reward_id", using: :btree
+  add_index "reward_users", ["user_id"], name: "index_reward_users_on_user_id", using: :btree
 
   create_table "rewards", force: :cascade do |t|
     t.integer  "cost"
@@ -41,4 +51,6 @@ ActiveRecord::Schema.define(version: 20160227174825) do
   end
 
   add_foreign_key "points", "users"
+  add_foreign_key "reward_users", "rewards"
+  add_foreign_key "reward_users", "users"
 end

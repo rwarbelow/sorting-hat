@@ -8,8 +8,8 @@ RSpec.feature "User can see rewards" do
     reward_cost = 10
     Reward.create(name: reward_name, cost: reward_cost)
 
-    click_on "List rewards"
-
+    click_on "Redeem points"
+    
     within("#Golden-Snitch") do
       expect(page).to have_content reward_name
       expect(page).to have_content reward_cost
