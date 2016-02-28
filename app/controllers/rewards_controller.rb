@@ -1,5 +1,5 @@
 class RewardsController < ApplicationController
-  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_admin, except: [:index]
 
   def index
     @rewards = Reward.all
