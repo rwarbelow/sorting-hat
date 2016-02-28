@@ -16,5 +16,6 @@ RSpec.feature "Admin login" do
 
     expect(page).to have_content "Welcome allan!"
     expect(page).to have_content "List users"
+    logout
   end
 end

@@ -1,10 +1,11 @@
 class User::RewardsController < ApplicationController
+  before_action :require_current_user
+
   def index
     @rewards = Reward.all
   end
 
   def create
-    # binding.pry
     user = current_user
     reward = Reward.find(params[:reward_id])
 

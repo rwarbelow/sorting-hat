@@ -20,5 +20,6 @@ RSpec.feature "Admin creates rewards" do
       expect(page).to have_content("Golden Snitch")
       expect(page).to have_content("Cost: 10")
     end
+    logout
   end
 end

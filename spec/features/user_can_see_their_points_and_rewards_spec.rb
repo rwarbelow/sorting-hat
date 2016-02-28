@@ -14,6 +14,7 @@ RSpec.feature "User can see points and rewards" do
     within("#rewards") do
       expect(page).to have_content "Golden Snitch"
     end
+    logout
   end
 
   scenario "if not logged in, get the 404 page" do

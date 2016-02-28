@@ -14,6 +14,7 @@ RSpec.feature "user can create an account" do
 
     expect(page).to have_content("Welcome #{username}!")
     expect(page).to have_content("Created new account!")
+    logout
   end
 
 end

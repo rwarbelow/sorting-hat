@@ -27,5 +27,6 @@ RSpec.feature "User login" do
     click_on "Login"
 
     expect(page).to have_content("Unable to login, please try again.")
+    logout
   end
 end

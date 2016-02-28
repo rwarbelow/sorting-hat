@@ -9,5 +9,6 @@ RSpec.feature "user cannot create points" do
 
     visit new_user_point_path(user)
     expect(page).to have_content("The page you were looking for doesn't exist.")
+    logout
   end
 end
