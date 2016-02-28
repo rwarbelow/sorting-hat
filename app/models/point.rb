@@ -3,7 +3,7 @@ class Point < ActiveRecord::Base
   belongs_to :user
 
   def self.total
-    sum(:value)
+    where("value > 0").sum(:value)
   end
 
   def self.redeemed
