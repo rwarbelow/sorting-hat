@@ -1,3 +1,4 @@
+<%= link_to "Logout", logout_path, method: "delete" %>
 <%= link_to "Redeem points", user_rewards_path(current_user) %>
 <h1><%= "Welcome #{current_user.username}!" %></h1>
 <div id="rewards">
@@ -6,5 +7,5 @@
   <% end %>
 </div>
 <p>
-  Total points: <%= @user.points.total %>
+  Total points: <%= @user.points.balance %>
 </p>
