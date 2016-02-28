@@ -14,6 +14,7 @@ RSpec.feature "User can only see their account details" do
       visit user_path(@harry.id)
 
       expect(page).to have_content(@error_message)
+      logout
     end
 
     it "tries to access the users page through admin access" do
@@ -22,6 +23,7 @@ RSpec.feature "User can only see their account details" do
       visit admin_user_path(@harry.id)
 
       expect(page).to have_content(@error_message)
+      logout
     end
   end
 

@@ -13,5 +13,6 @@ RSpec.feature "Admin can destroy reward" do
     click_on "Delete"
 
     expect(page).to_not have_content("Golden Snitch")
+    logout
   end
 end
