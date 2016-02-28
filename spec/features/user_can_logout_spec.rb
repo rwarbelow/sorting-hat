@@ -11,5 +11,6 @@ RSpec.feature "User logout" do
     click_on "Logout"
 
     expect(current_path).to eq root_path
+    expect(page).to have_content "You have successfully logged out"
   end
 end
