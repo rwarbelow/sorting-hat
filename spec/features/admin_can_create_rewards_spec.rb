@@ -15,7 +15,7 @@ RSpec.feature "Admin creates rewards" do
     fill_in "Cost", with: 10
 
     click_on "Create Reward"
-    # save_and_open_page
+
     within("#Golden-Snitch") do
       expect(page).to have_content("Golden Snitch")
       expect(page).to have_content("Cost: 10")
