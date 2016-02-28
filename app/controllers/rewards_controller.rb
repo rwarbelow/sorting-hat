@@ -1,9 +1,12 @@
 class RewardsController < ApplicationController
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @rewards = Reward.all
   end
 
   def new
+    @reward = Reward.new
   end
 
   def update
