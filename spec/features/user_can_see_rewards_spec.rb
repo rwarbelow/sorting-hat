@@ -14,5 +14,6 @@ RSpec.feature "User can see rewards" do
       expect(page).to have_content reward_name
       expect(page).to have_content reward_cost
     end
+    logout
   end
 end

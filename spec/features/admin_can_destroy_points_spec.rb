@@ -19,5 +19,6 @@ RSpec.feature "Admin can destroy points" do
     within("#points") do
       expect(page).not_to have_content "500"
     end
+    logout
   end
 end

@@ -16,5 +16,6 @@ RSpec.feature "User can redeem points for a reward" do
     end
 
     expect(page).to have_content("Total points: 20")
+    logout
   end
 end

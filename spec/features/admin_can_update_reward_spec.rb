@@ -22,5 +22,6 @@ RSpec.feature "Admin can update reward" do
 
     expect(page).to have_content("Golden Lich")
     expect(page).to have_content(reward_cost)
+    logout
   end
 end
