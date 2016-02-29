@@ -9,11 +9,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"></head>
 <body>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-
-<%= yield %>
-
+  <div class = "container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>
