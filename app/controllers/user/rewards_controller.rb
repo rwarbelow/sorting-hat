@@ -9,11 +9,13 @@ class User::RewardsController < ApplicationController
     user = current_user
     reward = Reward.find(params[:reward_id])
 
-    if user.points.total > reward.cost
+    if user.points.balance > reward.cost
       user.rewards << reward
       user.points.create(value: -reward.cost)
       redirect_to user_path(user.id)
     else
+      flash.now[:error] = "Sorry you don't have enough points for that. Go talk to Snape."
+      @rewards = Reward.all
       render :index
     end
   end
