@@ -1,11 +1,14 @@
-<%= link_to "Logout", logout_path, method: "delete" %>
-<%= link_to "Redeem points", user_rewards_path(current_user) %>
-<h1><%= "Welcome #{current_user.username}!" %></h1>
-<div id="rewards">
-  <% @rewards.each do |reward| %>
-    <p><%= reward.name %></p>
-  <% end %>
+<%= render partial: "/shared/userimage" %>
+<div class = "col-md-10 col-md-offset-1 text-center bottom-border">
+  <h2>Total points: <%= @user.points.balance %></h2>
+  <h3><%= link_to "Redeem points", user_rewards_path(current_user) %><h3>
 </div>
-<p>
-  Total points: <%= @user.points.balance %>
-</p>
+
+<div class = "col-md-12 text-center">
+  <h2>Redeemed Rewards</h2>
+  <div id="rewards">
+    <% @rewards.each do |reward| %>
+      <h3><%= reward.name %></h3>
+    <% end %>
+  </div>
+</div>

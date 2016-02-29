@@ -7,7 +7,6 @@ RSpec.feature "User can see rewards" do
     reward_name = "Golden Snitch"
     reward_cost = 10
     Reward.create(name: reward_name, cost: reward_cost)
-
     click_on "Redeem points"
 
     within("#Golden-Snitch") do
