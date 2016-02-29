@@ -8,12 +8,16 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1"></head>
 <body>
-
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-
-<%= yield %>
-
+  <div class = "container">
+    <% flash.each do |name, msg| %>
+      <% alertname = "success" if name == "notice" %>
+      <% alertname = "danger" if name == "error" %>
+      <%= content_tag :div, msg, class: "alert alert-#{alertname}" %>
+    <% end %>
+    <% if current_user %>
+      <%= render partial: "shared/navbar" %>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>

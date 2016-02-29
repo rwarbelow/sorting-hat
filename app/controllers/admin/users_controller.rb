@@ -10,5 +10,6 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def dashboard
+    @image = Image.get(current_user.id)
   end
 end
