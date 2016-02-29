@@ -9,7 +9,7 @@ class User::RewardsController < ApplicationController
     user = current_user
     reward = Reward.find(params[:reward_id])
 
-    if user.points.balance > reward.cost
+    if user.points.balance >= reward.cost
       user.rewards << reward
       user.points.create(value: -reward.cost)
       redirect_to user_path(user.id)
