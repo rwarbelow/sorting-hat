@@ -1,48 +1,20 @@
 class RewardsController < ApplicationController
-  before_action :require_admin, except: [:index]
+  before_action :require_current_user
 
   def index
     @rewards = Reward.all
   end
 
-  def new
-    @reward = Reward.new
-  end
-
-  def update
-    @reward = Reward.find(params[:id])
-    if @reward.update(reward_params)
-      redirect_to reward_path(@reward.id)
-    else
-      render :edit
-    end
-  end
-
-  def edit
-    @reward = Reward.find(params[:id])
-  end
-
-  def destroy
-    Reward.destroy(params[:id])
-    redirect_to rewards_path
-  end
-
-  def show
-    @reward = Reward.find(params[:id])
-  end
-
   def create
-    @reward = Reward.new(reward_params)
-    if @reward.save
-      redirect_to rewards_path
+    user = current_user
+    reward = Reward.find(params[:reward_id])
+
+    if user.has_points_for?(reward)
+      user.process(reward)
+      redirect_to user_path(user.id)
     else
-      render :new
+      flash[:error] = "Sorry you don't have enough points for that. Go talk to Snape."
+      redirect_to rewards_path
     end
-  end
-
-  private
-
-  def reward_params
-    params.require(:reward).permit(:name, :cost)
   end
 end

@@ -1,9 +1,11 @@
-<%= link_to "Create reward", new_reward_path %>
-
 <h2>List Rewards</h2>
 <% @rewards.each do |reward| %>
 <div id="<%=reward.format_name%>">
-  <h4><%=link_to reward.name, reward_path(reward.id) %></h4>
+  <h4><%= reward.name %></h4>
   <p>Cost: <%= reward.cost %></p>
+  <%= form_for(current_user, url: user_rewards_path, method: :post) do |f| %>
+  <input type="hidden" name="reward_id" value="<%= reward.id %>">
+  <%= f.submit "Buy #{reward.name}"%>
+  <% end %>
 </div>
 <% end %>

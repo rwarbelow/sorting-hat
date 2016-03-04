@@ -7,7 +7,7 @@
 <div class = "col-md-12 text-center">
   <h2>Redeemed Rewards</h2>
   <div id="rewards">
-    <% @rewards.each do |reward| %>
+    <% @user.rewards.each do |reward| %>
       <h3><%= reward.name %></h3>
     <% end %>
   </div>

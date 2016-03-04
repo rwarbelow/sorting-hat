@@ -18,8 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @rewards = @user.rewards
+    @user = current_user
     @image = Image.get(@user.id)
     render file: "/public/404" unless current_user && current_user.id == @user.id
   end
